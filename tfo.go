@@ -30,10 +30,6 @@ func (PlatformUnsupportedError) Error() string {
 	return "tfo-go does not support TCP Fast Open on this platform"
 }
 
-func (PlatformUnsupportedError) Is(target error) bool {
-	return target == errors.ErrUnsupported
-}
-
 // ListenConfig wraps [net.ListenConfig] with an additional option that allows you to disable TFO.
 type ListenConfig struct {
 	net.ListenConfig
