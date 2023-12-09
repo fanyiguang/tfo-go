@@ -239,7 +239,7 @@ func (d *Dialer) dialSingle(ctx context.Context, network string, laddr, raddr *n
 	}
 
 	if err = setTFODialer(uintptr(handle)); err != nil {
-		if !d.Fallback || !errors.Is(err, errors.ErrUnsupported) {
+		if !d.Fallback || !errors.Is(err, os.ErrInvalid) {
 			tc.Close()
 			return nil, wrapSyscallError("setsockopt(TCP_FASTOPEN)", err)
 		}

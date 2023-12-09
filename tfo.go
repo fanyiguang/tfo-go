@@ -32,7 +32,7 @@ func (PlatformUnsupportedError) Error() string {
 }
 
 func (PlatformUnsupportedError) Is(target error) bool {
-	return target == errors.ErrUnsupported
+	return target == os.ErrInvalid
 }
 
 var runtimeListenNoTFO atomic.Bool
